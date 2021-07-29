@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
     public string[] idList;
     public int selectedOption;
     public AudioMixer audioMixer;
+    public float sliderValue = 0.0f;
+    float dbVolume;
 
     void OnGUI()
     {
@@ -117,8 +119,16 @@ public class MainMenu : MonoBehaviour
             case 0:
                 //Master
                 GUI.Box(new Rect(screen.x * 2, screen.y * 2, screen.x * 5, screen.y * 2), "Master");
-                audioMixer.SetFloat("masterVolume",0);
-
+                sliderValue = GUI.HorizontalSlider(new Rect(screen.x * 2, screen.y * 3.25f, screen.x * 5, screen.y * 2), sliderValue, 0.0f, 1.0f);
+                if (sliderValue != 0)
+                   {
+                    dbVolume = Mathf.Log10(sliderValue) * 20f;
+                   }
+                else
+                   {
+                    dbVolume = -144.0f;
+                   }
+                audioMixer.SetFloat("masterVolume", dbVolume);
                 //SFX
                 GUI.Box(new Rect(screen.x * 9, screen.y * 2, screen.x * 5, screen.y * 2), "SFX");
 

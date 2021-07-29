@@ -175,6 +175,7 @@ MonoBehaviour:
   - Cursors
   selectedOption: 0
   audioMixer: {fileID: 24100000, guid: 3b0a4ac2e2d04984aab73504abd865a3, type: 2}
+  sliderValue: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
