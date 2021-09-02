@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogScript : MonoBehaviour
 {
     [Header("References")]
-    public bool isDialogOpen;
+    public bool isDialogOpen = false;
     public string[] dialogText;
     public int dialogIndex; // index of current line of dialogue
     public string npcName;
